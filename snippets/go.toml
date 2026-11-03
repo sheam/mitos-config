@@ -1,0 +1,383 @@
+[[snippet]]
+name = "go: single constant"
+prefix = ["co"]
+scope = "go"
+description = "Snippet for a constant"
+body = ["const ${1:name} = ${2:value}"]
+
+[[snippet]]
+name = "go: multiple constants"
+prefix = ["cos"]
+scope = "go"
+description = "Snippet for a constant block"
+body = ["const (", "\t${1:name} = ${2:value}", ")"]
+
+[[snippet]]
+name = "go: type function declaration"
+prefix = ["tyf"]
+scope = "go"
+description = "Snippet for a type function declaration"
+body = ["type ${1:name} func($3) $4"]
+
+[[snippet]]
+name = "go: type interface declaration"
+prefix = ["tyi"]
+scope = "go"
+description = "Snippet for a type interface"
+body = ["type ${1:name} interface {", "\t$0", "}"]
+
+[[snippet]]
+name = "go: type struct declaration"
+prefix = ["tys"]
+scope = "go"
+description = "Snippet for a struct declaration"
+body = ["type ${1:name} struct {", "\t$0", "}"]
+
+[[snippet]]
+name = "go: function declaration"
+prefix = ["func"]
+scope = "go"
+description = "Snippet for function declaration"
+body = ["func $1($2) $3 {", "\t$0", "}"]
+
+[[snippet]]
+name = "go: variable declaration"
+prefix = ["var"]
+scope = "go"
+description = "Snippet for a variable"
+body = ["var ${1:name} ${2:type}"]
+
+[[snippet]]
+name = "go: variables declaration"
+prefix = ["vars"]
+scope = "go"
+description = "Snippet for a variable"
+body = ["var (", "\t${1:name} ${2:type} = ${3:value}", ")"]
+
+[[snippet]]
+name = "go: switch statement"
+prefix = ["switch"]
+scope = "go"
+description = "Snippet for switch statement"
+body = ["switch ${1:expression} {", "case ${2:condition}:", "\t$0", "}"]
+
+[[snippet]]
+name = "go: select statement"
+prefix = ["sel"]
+scope = "go"
+description = "Snippet for select statement"
+body = ["select {", "case ${1:condition}:", "\t$0", "}"]
+
+[[snippet]]
+name = "go: case clause"
+prefix = ["cs"]
+scope = "go"
+description = "Snippet for case clause"
+body = ["case ${1:condition}:$0"]
+
+[[snippet]]
+name = "go: for statement"
+prefix = ["for"]
+scope = "go"
+description = "Snippet for a pure for loop"
+body = ["for ${1}{", "\t$0", "}"]
+
+[[snippet]]
+name = "go: for n statement"
+prefix = ["fori"]
+scope = "go"
+description = "Snippet for a for loop"
+body = ["for ${1:i} := ${2:0}; $1 < ${3:count}; $1${4:++} {", "\t$0", "}"]
+
+[[snippet]]
+name = "go: for range statement"
+prefix = ["forr"]
+scope = "go"
+description = "Snippet for a for range loop"
+body = ["for ${1:_, }${2:v} := range ${3:v} {", "\t$0", "}"]
+
+[[snippet]]
+name = "go: channel declaration"
+prefix = ["ch"]
+scope = "go"
+description = "Snippet for a channel"
+body = ["chan ${1:type}"]
+
+[[snippet]]
+name = "go: map declaration"
+prefix = ["map"]
+scope = "go"
+description = "Snippet for a map"
+body = ["map[${1:type}]${2:type}"]
+
+[[snippet]]
+name = "go: empty interface"
+prefix = ["in"]
+scope = "go"
+description = "Snippet for empty interface"
+body = ["interface{}"]
+
+[[snippet]]
+name = "go: if statement"
+prefix = ["if"]
+scope = "go"
+description = "Snippet for if statement"
+body = ["if ${1:condition} {", "\t$0", "}"]
+
+[[snippet]]
+name = "go: else branch"
+prefix = ["el"]
+scope = "go"
+description = "Snippet for else branch"
+body = ["else {", "\t$0", "}"]
+
+[[snippet]]
+name = "go: if else statement"
+prefix = ["ife"]
+scope = "go"
+description = "Snippet for if else"
+body = ["if ${1:condition} {", "\t$2", "} else {", "\t$0", "}"]
+
+[[snippet]]
+name = "go: if err != nil"
+prefix = ["ir"]
+scope = "go"
+description = "Snippet for if err != nil"
+body = ["if err != nil {", "\treturn ${1:nil}, ${2:err}", "}"]
+
+[[snippet]]
+name = "go: fmt.Println"
+prefix = ["fp"]
+scope = "go"
+description = "Snippet for fmt.Println()"
+body = ["fmt.Println(\"$1\")"]
+
+[[snippet]]
+name = "go: fmt.Printf"
+prefix = ["ff"]
+scope = "go"
+description = "Snippet for fmt.Printf()"
+body = ["fmt.Printf(\"$1\", ${2:var})"]
+
+[[snippet]]
+name = "go: log.Println"
+prefix = ["lp"]
+scope = "go"
+description = "Snippet for log.Println()"
+body = ["log.Println(\"$1\")"]
+
+[[snippet]]
+name = "go: log.Printf"
+prefix = ["lf"]
+scope = "go"
+description = "Snippet for log.Printf()"
+body = ["log.Printf(\"$1\", ${2:var})"]
+
+[[snippet]]
+name = "go: log variable content"
+prefix = ["lv"]
+scope = "go"
+description = "Snippet for log.Printf() with variable content"
+body = ["log.Printf(\"${1:var}: %#+v\\\\n\", ${1:var})"]
+
+[[snippet]]
+name = "go: t.Log"
+prefix = ["tl"]
+scope = "go"
+description = "Snippet for t.Log()"
+body = ["t.Log(\"$1\")"]
+
+[[snippet]]
+name = "go: t.Logf"
+prefix = ["tlf"]
+scope = "go"
+description = "Snippet for t.Logf()"
+body = ["t.Logf(\"$1\", ${2:var})"]
+
+[[snippet]]
+name = "go: t.Logf variable content"
+prefix = ["tlv"]
+scope = "go"
+description = "Snippet for t.Logf() with variable content"
+body = ["t.Logf(\"${1:var}: %#+v\\\\n\", ${1:var})"]
+
+[[snippet]]
+name = "go: make(...)"
+prefix = ["make"]
+scope = "go"
+description = "Snippet for make statement"
+body = ["make(${1:type}, ${2:0})"]
+
+[[snippet]]
+name = "go: new(...)"
+prefix = ["new"]
+scope = "go"
+description = "Snippet for new statement"
+body = ["new(${1:type})"]
+
+[[snippet]]
+name = "go: panic(...)"
+prefix = ["pn"]
+scope = "go"
+description = "Snippet for panic"
+body = ["panic(\"$0\")"]
+
+[[snippet]]
+name = "go: http ResponseWriter *Request"
+prefix = ["wr"]
+scope = "go"
+description = "Snippet for http Response"
+body = ["${1:w} http.ResponseWriter, ${2:r} *http.Request"]
+
+[[snippet]]
+name = "go: http.HandleFunc"
+prefix = ["hf"]
+scope = "go"
+description = "Snippet for http.HandleFunc()"
+body = ["${1:http}.HandleFunc(\"${2:/}\", ${3:handler})"]
+
+[[snippet]]
+name = "go: http handler declaration"
+prefix = ["hand"]
+scope = "go"
+description = "Snippet for http handler declaration"
+body = ["func $1(${2:w} http.ResponseWriter, ${3:r} *http.Request) {", "\t$0", "}"]
+
+[[snippet]]
+name = "go: http.Redirect"
+prefix = ["rd"]
+scope = "go"
+description = "Snippet for http.Redirect()"
+body = ["http.Redirect(${1:w}, ${2:r}, \"${3:/}\", ${4:http.StatusFound})"]
+
+[[snippet]]
+name = "go: http.Error"
+prefix = ["herr"]
+scope = "go"
+description = "Snippet for http.Error()"
+body = ["http.Error(${1:w}, ${2:err}.Error(), ${3:http.StatusInternalServerError})"]
+
+[[snippet]]
+name = "go: http.ListenAndServe"
+prefix = ["las"]
+scope = "go"
+description = "Snippet for http.ListenAndServe"
+body = ["http.ListenAndServe(\"${1::8080}\", ${2:nil})"]
+
+[[snippet]]
+name = "go: http.Serve"
+prefix = ["sv"]
+scope = "go"
+description = "Snippet for http.Serve"
+body = ["http.Serve(\"${1::8080}\", ${2:nil})"]
+
+[[snippet]]
+name = "go: goroutine anonymous function"
+prefix = ["go"]
+scope = "go"
+description = "Snippet for anonymous goroutine declaration"
+body = ["go func($1) {", "\t$0", "}($2)"]
+
+[[snippet]]
+name = "go: goroutine function"
+prefix = ["gf"]
+scope = "go"
+description = "Snippet for goroutine declaration"
+body = ["go ${1:func}($0)"]
+
+[[snippet]]
+name = "go: defer statement"
+prefix = ["df"]
+scope = "go"
+description = "Snippet for defer statement"
+body = ["defer ${1:func}($0)"]
+
+[[snippet]]
+name = "go: test function"
+prefix = ["tf"]
+scope = "go"
+description = "Snippet for Test function"
+body = ["func Test$1(t *testing.T) {", "\t$0", "}"]
+
+[[snippet]]
+name = "go: test main"
+prefix = ["tm"]
+scope = "go"
+description = "Snippet for TestMain function"
+body = ["func TestMain(m *testing.M) {", "\t$1", "", "\tos.Exit(m.Run())", "}"]
+
+[[snippet]]
+name = "go: benchmark function"
+prefix = ["bf"]
+scope = "go"
+description = "Snippet for Benchmark function"
+body = ["func Benchmark$1(b *testing.B) {", "\tfor ${2:i} := 0; ${2:i} < b.N; ${2:i}++ {", "\t\t$0", "\t}", "}"]
+
+[[snippet]]
+name = "go: example function"
+prefix = ["ef"]
+scope = "go"
+description = "Snippet for Example function"
+body = ["func Example$1() {", "\t$2", "\t//Output:", "\t$3", "}"]
+
+[[snippet]]
+name = "go: table driven test"
+prefix = ["tdt"]
+scope = "go"
+description = "Snippet for table driven test"
+body = ["func Test$1(t *testing.T) {", "\ttestCases := []struct {", "\t\tdesc\tstring", "\t\t$2", "\t}{", "\t\t{", "\t\t\tdesc: \"$3\",", "\t\t\t$4", "\t\t},", "\t}", "\tfor _, tC := range testCases {", "\t\tt.Run(tC.desc, func(t *testing.T) {", "\t\t\t$0", "\t\t})", "\t}", "}"]
+
+[[snippet]]
+name = "go: init function"
+prefix = ["finit"]
+scope = "go"
+description = "Snippet for init function"
+body = ["func init() {", "\t$1", "}"]
+
+[[snippet]]
+name = "go: main function"
+prefix = ["fmain"]
+scope = "go"
+description = "Snippet for main function"
+body = ["func main() {", "\t$1", "}"]
+
+[[snippet]]
+name = "go: method declaration"
+prefix = ["meth", "fum"]
+scope = "go"
+description = "Snippet for method declaration"
+body = ["func (${1:receiver} ${2:type}) ${3:method}($4) $5 {", "\t$0", "}"]
+
+[[snippet]]
+name = "go: hello world web app"
+prefix = ["helloweb"]
+scope = "go"
+description = "Snippet for sample hello world webapp"
+body = ["package main", "", "import (", "\t\"fmt\"", "\t\"net/http\"", "\t\"time\"", ")", "", "func greet(w http.ResponseWriter, r *http.Request) {", "\tfmt.Fprintf(w, \"Hello World! %s\", time.Now())", "}", "", "func main() {", "\thttp.HandleFunc(\"/\", greet)", "\thttp.ListenAndServe(\":8080\", nil)", "}"]
+
+[[snippet]]
+name = "go: sort implementation"
+prefix = ["sort"]
+scope = "go"
+description = "Snippet for a custom sort.Sort interface implementation, for a given slice type."
+body = ["type ${1:SortBy} []${2:Type}", "", "func (a $1) Len() int           { return len(a) }", "func (a $1) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }", "func (a $1) Less(i, j int) bool { ${3:return a[i] < a[j]} }"]
+
+[[snippet]]
+name = "go: json tag"
+prefix = ["json"]
+scope = "go"
+description = "Snippet for struct json tag"
+body = ["`json:\"$1\"`"]
+
+[[snippet]]
+name = "go: xml tag"
+prefix = ["xml"]
+scope = "go"
+description = "Snippet for struct xml tag"
+body = ["`xml:\"$1\"`"]
+
+[[snippet]]
+name = "go: if key in a map"
+prefix = ["om"]
+scope = "go"
+body = ["if ${1:value}, ok := ${2:map}[${3:key}]; ok {", "\t$4", "}"]

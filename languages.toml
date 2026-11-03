@@ -1,0 +1,90 @@
+# Ported from ~/.config/helix/languages.toml (duplicate [[language]] blocks merged;
+# hx-lsp removed because snippets are now native, see ./snippets/).
+
+# Go: go install golang.org/x/tools/gopls@latest
+[language-server.gopls]
+command = "gopls"
+
+[language-server.gopls.config]
+usePlaceholders = true
+staticcheck = true
+vulncheck = "Imports"
+gofumpt = true
+
+[language-server.gopls.config.analyses]
+unusedfunc = true
+unusedparams = true
+unreachable = true
+unusedvariable = true
+
+[language-server.gopls.config.hints]
+compositeLiteralTypes = true
+
+[[language]]
+name = "go"
+language-servers = ["gopls"]
+
+# ESLint (vscode-langservers-extracted 4.8.0; 4.10.0 breaks it)
+[language-server.eslint]
+command = "vscode-eslint-language-server"
+args = ["--stdio"]
+
+[language-server.eslint.config]
+format = true
+nodePath = ""
+onIgnoredFiles = "off"
+packageManager = "yarn"
+quiet = false
+rulesCustomizations = []
+run = "onType"
+useESLintClass = false
+validate = "on"
+codeAction = { disableRuleComment = { enable = true, location = "separateLine" }, showDocumentation = { enable = true } }
+codeActionOnSave = { mode = "all" }
+experimental = {}
+problems = { shortenToSingleLine = false }
+workingDirectory = { mode = "auto" }
+
+[[language]]
+name = "typescript"
+language-servers = [
+  { name = "typescript-language-server", except-features = ["format"] },
+  "eslint",
+]
+formatter = { command = "npx", args = ["prettier", "--stdin-filepath", "file.ts"] }
+auto-format = true
+
+[[language]]
+name = "tsx"
+language-servers = [
+  { name = "typescript-language-server", except-features = ["format"] },
+  "eslint",
+]
+formatter = { command = "npx", args = ["prettier", "--stdin-filepath", "file.tsx"] }
+auto-format = true
+
+[[language]]
+name = "json"
+auto-format = false
+formatter = { command = "npx", args = ["prettier", "--parser", "json"] }
+
+[language-server.clangd]
+command = "clangd"
+args = ["--background-index", "-j=2"]
+
+[[language]]
+name = "cpp"
+language-servers = ["clangd"]
+formatter = { command = "clang-format" }
+auto-format = false
+
+[language.debugger]
+name = "lldb-dap"
+transport = "stdio"
+command = "lldb-dap"
+
+[[language.debugger.templates]]
+name = "binary"
+request = "launch"
+completion = [{ name = "binary", completion = "filename" }]
+args = { program = "{0}" }

@@ -1,0 +1,160 @@
+[[snippet]]
+name = "typescript: Class Definition"
+prefix = ["class"]
+scope = "typescript"
+description = "Class Definition"
+body = ["class ${1:name} {", "\tconstructor(${2:parameters}) {", "\tsuper();", "\t\t$0", "\t}", "}"]
+
+[[snippet]]
+name = "typescript: Interface Definition"
+prefix = ["iface"]
+scope = "typescript"
+description = "Interface Definition"
+body = ["interface ${1:name} {", "\t$0", "}"]
+
+[[snippet]]
+name = "typescript: Public Method Definition"
+prefix = ["public-method"]
+scope = "typescript"
+description = "Public Method Definition"
+body = ["/**", " * ${1:name}", " */", "public ${1:name}() {", "\t$0", "}"]
+
+[[snippet]]
+name = "typescript: Private Method Definition"
+prefix = ["private-method"]
+scope = "typescript"
+description = "Private Method Definition"
+body = ["private ${1:name}() {", "\t$0", "}"]
+
+[[snippet]]
+name = "typescript: Import external module."
+prefix = ["import-statement"]
+scope = "typescript"
+description = "Import external module."
+body = ["import { $0 } from \"${1:module}\";"]
+
+[[snippet]]
+name = "typescript: Property getter"
+prefix = ["get"]
+scope = "typescript"
+description = "Property getter"
+body = ["", "public get ${1:value}() : ${2:string} {", "\t${3:return $0}", "}", ""]
+
+[[snippet]]
+name = "typescript: Log to the console"
+prefix = ["log"]
+scope = "typescript"
+description = "Log to the console"
+body = ["console.log($1);", "$0"]
+
+[[snippet]]
+name = "typescript: Log warning to console"
+prefix = ["warn"]
+scope = "typescript"
+description = "Log warning to the console"
+body = ["console.warn($1);", "$0"]
+
+[[snippet]]
+name = "typescript: Log error to console"
+prefix = ["error"]
+scope = "typescript"
+description = "Log error to the console"
+body = ["console.error($1);", "$0"]
+
+[[snippet]]
+name = "typescript: Define a full property"
+prefix = ["prop"]
+scope = "typescript"
+description = "Define a full property"
+body = ["", "private _${1:value} : ${2:string};", "public get ${1:value}() : ${2:string} {", "\treturn this._${1:value};", "}", "public set ${1:value}(v : ${2:string}) {", "\tthis._${1:value} = v;", "}", ""]
+
+[[snippet]]
+name = "typescript: Property setter"
+prefix = ["set"]
+scope = "typescript"
+description = "Property setter"
+body = ["", "public set ${1:value}(v : ${2:string}) {", "\tthis.$3 = v;", "}", ""]
+
+[[snippet]]
+name = "typescript: Throw Exception"
+prefix = ["throw"]
+scope = "typescript"
+description = "Throw Exception"
+body = ["throw Error('$1');", "$0"]
+
+[[snippet]]
+name = "typescript: For Loop"
+prefix = ["fori"]
+scope = "typescript"
+description = "For Loop"
+body = ["for (let ${1:index} = 0; ${1:index} < ${2:array}.length; ${1:index}++) {", "\tconst ${3:element} = ${2:array}[${1:index}];", "\t$0", "}"]
+
+[[snippet]]
+name = "typescript: For-Of Loop"
+prefix = ["for"]
+scope = "typescript"
+description = "For-Of Loop"
+body = ["for (const ${1:iterator} of ${2:object}) {", "\t$0", "}"]
+
+[[snippet]]
+name = "typescript: Function Statement"
+prefix = ["function"]
+scope = "typescript"
+description = "Function Statement"
+body = ["function ${1:name}(${2:params}:${3:type}) {", "\t$0", "}"]
+
+[[snippet]]
+name = "typescript: If Statement"
+prefix = ["if"]
+scope = "typescript"
+description = "If Statement"
+body = ["if (${1:condition}) {", "\t$0", "}"]
+
+[[snippet]]
+name = "typescript: If-Else Statement"
+prefix = ["ifelse"]
+scope = "typescript"
+description = "If-Else Statement"
+body = ["if (${1:condition}) {", "\t$2", "} else {", "\t$0", "}"]
+
+[[snippet]]
+name = "typescript: New Statement"
+prefix = ["new"]
+scope = "typescript"
+description = "New Statement"
+body = ["const ${1:name} = new ${2:type}(${3:arguments});$0"]
+
+[[snippet]]
+name = "typescript: Switch Statement"
+prefix = ["switch"]
+scope = "typescript"
+description = "Switch Statement"
+body = ["switch (${1:key}) {", "\tcase ${2:value}:", "\t\t$0", "\t\tbreak;", "", "\tdefault:", "\t\tbreak;", "}"]
+
+[[snippet]]
+name = "typescript: Try-Catch Statement"
+prefix = ["trycatch"]
+scope = "typescript"
+description = "Try-Catch Statement"
+body = ["try {", "\t$0", "} catch (${1:error}) {", "\t", "}"]
+
+[[snippet]]
+name = "typescript: Set Timeout Function"
+prefix = ["settimeout"]
+scope = "typescript"
+description = "Set Timeout Function"
+body = ["setTimeout(() => {", "\t$0", "}, ${1:timeout});"]
+
+[[snippet]]
+name = "typescript: Region Start"
+prefix = ["#region"]
+scope = "typescript"
+description = "Folding Region Start"
+body = ["//#region $0"]
+
+[[snippet]]
+name = "typescript: Region End"
+prefix = ["#endregion"]
+scope = "typescript"
+description = "Folding Region End"
+body = ["//#endregion"]

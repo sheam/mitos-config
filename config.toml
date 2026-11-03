@@ -1,0 +1,95 @@
+# Ported from ~/.config/helix/config.toml
+theme = "focus_nova"
+
+[keys.normal]
+C-left = ":bp"
+C-h = ":bp"
+C-right = ":bn"
+C-l = ":bn"
+C-q = ":bc"
+
+[editor]
+line-number = "relative"
+border-style = "rounded"  # replaces helix-fork rounded-corners / popup-border
+
+[editor.mouse]
+middle-click-paste = false
+
+[editor.cursor]
+highlight-line = true
+highlight-column = true
+
+[editor.cursor.shape]
+insert = "bar"
+normal = "block"
+select = "block"
+
+[editor.files.reload]
+enable = true  # was focus-gained
+poll.enable = false
+poll.interval = 5000
+
+[editor.files.save]
+trim-trailing-whitespace = true
+
+[editor.diagnostics.inline]
+cursor-line = "disable"
+other-lines = "disable"
+
+[editor.diagnostics.end-of-line]
+severity = "hint"
+
+[editor.statusline]
+mode.normal = "N"
+mode.insert = "I"
+mode.select = "V"
+mode.color = true
+left = [
+  "mode",
+  "spinner",
+  "branch",
+  "read-only-indicator",
+  "file-name",
+  "file-modification-indicator",
+]
+right = [
+  "diagnostics",
+  "selections",
+  "register",
+  "position",
+  "position-percentage",
+  "file-encoding",
+]
+
+[editor.lsp]
+enable = true
+
+[editor.lsp.progress]
+enable = true
+
+[editor.lsp.inlay-hints]
+enable = false
+
+[editor.search]
+wrap-around = true
+
+[editor.whitespace.render]
+newline = "all"
+
+[editor.whitespace.characters]
+space = "·"
+nbsp = "⍽"
+nnbsp = "␣"
+tab = "→"
+newline = "⏎"
+tabpad = "."
+
+[editor.indent-guides]
+render = true
+skip-levels = 1
+
+[editor.soft-wrap]
+enable = false
+
+[editor.bufferline]
+show = "multiple"

@@ -1,0 +1,117 @@
+[[snippet]]
+name = "tsx: destructuring of props"
+prefix = ["dp"]
+scope = "tsx"
+body = ["const { ${1:name} } = this.props"]
+
+[[snippet]]
+name = "tsx: reactFunctionComponent"
+prefix = ["rfc"]
+scope = "tsx"
+description = "Creates a React functional component"
+body = ["interface I${1:Component}Props {", "\t${2:name}: ${3:string};", "\t${4:var2}: ${5:string};", "}", "export const $1 = ({$2, $4}: I${1}Props): ReactElement => {", "\treturn (", "\t\t$0", "\t);", "}"]
+
+[[snippet]]
+name = "tsx: jsx element"
+prefix = ["j"]
+scope = "tsx"
+description = "an element"
+body = ["<${1:elementName}>", "\t$0", "</${1}>"]
+
+[[snippet]]
+name = "tsx: jsx element self closed"
+prefix = ["jc"]
+scope = "tsx"
+description = "an element self closed"
+body = ["<${1:elementName} />"]
+
+[[snippet]]
+name = "tsx: jsx elements map"
+prefix = ["jm"]
+scope = "tsx"
+description = "an element self closed"
+body = ["{${1:array}.map((item) => <${2:elementName} key={item.id}>", "\t$0", "</${2}>)}"]
+
+[[snippet]]
+name = "tsx: jsx element wrap selection"
+prefix = ["jsx-wrap-selection-with-element"]
+scope = "tsx"
+description = "an element"
+body = ["<${1:elementName}>", "\t{$TM_SELECTED_TEXT}", "</${1}>"]
+
+[[snippet]]
+name = "tsx: useState"
+prefix = ["us"]
+scope = "tsx"
+description = "React useState() hook"
+body = ["const [${1:state}, set${1/^(.)/${1:/upcase}/}] = useState(${2:initValue})$0"]
+
+[[snippet]]
+name = "tsx: useEffect"
+prefix = ["ue"]
+scope = "tsx"
+description = "React useEffect() hook"
+body = ["useEffect(() => {", "\t$1", "}, [${3:dependencies}])$0"]
+
+[[snippet]]
+name = "tsx: useContext"
+prefix = ["uc"]
+scope = "tsx"
+description = "React useContext() hook"
+body = ["const $1 = useContext($2)$0"]
+
+[[snippet]]
+name = "tsx: useRef"
+prefix = ["ur"]
+scope = "tsx"
+description = "React useRef() hook"
+body = ["const ${1:elName}El = useRef(null)$0"]
+
+[[snippet]]
+name = "tsx: useCallback"
+prefix = ["ucb"]
+scope = "tsx"
+description = "React useCallback() hook"
+body = ["const ${1:memoizedCallback} = useCallback(", "\t() => {", "\t\t${2:doSomething}(${3:a}, ${4:b})", "\t},", "\t[${5:a}, ${6:b}],", ")$0"]
+
+[[snippet]]
+name = "tsx: useMemo"
+prefix = ["um"]
+scope = "tsx"
+description = "React useMemo() hook"
+body = ["const ${1:memoizedValue} = useMemo(() => ${2:computeExpensiveValue}(${3:a}, ${4:b}), [${5:a}, ${6:b}])$0"]
+
+[[snippet]]
+name = "tsx: createReactHookWithName"
+prefix = ["hook"]
+scope = "tsx"
+description = "Create React Hook using File name"
+body = ["interface I${TM_FILENAME_BASE}Args {", "\t$1:$2;", "}", "interface I${TM_FILENAME_BASE}Result {", "\t$3:$4;", "}", "export function ${TM_FILENAME_BASE}(args: I${TM_FILENAME_BASE}Args): I${TM_FILENAME_BASE}Result {", "\t$0", "}"]
+
+[[snippet]]
+name = "tsx: describeBlock"
+prefix = ["desc"]
+scope = "tsx"
+description = "Testing `describe` block"
+body = ["describe('$1', () => {", "  $0", "})", ""]
+
+[[snippet]]
+name = "tsx: testBlock"
+prefix = ["test"]
+scope = "tsx"
+description = "Testing `test` block"
+body = ["test('should $1', () => {", "  $0", "})", ""]
+
+[[snippet]]
+name = "tsx: itBlock"
+prefix = ["it"]
+scope = "tsx"
+description = "Testing `it` block"
+body = ["it('should $1', () => {", "  $0", "})", ""]
+
+[[snippet]]
+name = "tsx: itAsyncBlock"
+prefix = ["ita"]
+scope = "tsx"
+description = "Testing async `it` block"
+body = ["it('should $1', async () => {", "  $0", "})", ""]
